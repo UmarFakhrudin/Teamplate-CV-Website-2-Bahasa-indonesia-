@@ -237,7 +237,7 @@ const SectionHeading = ({ children, subtitle, center = false }: { children: Reac
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="text-4xl md:text-5xl font-display font-extrabold text-slate-900 mb-6 leading-tight"
+      className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-slate-900 mb-6 leading-tight"
     >
       {subtitle}
     </motion.h2>
@@ -330,20 +330,20 @@ export default function App() {
                 <span className="text-sm font-bold text-slate-600 tracking-tight">Tersedia untuk proyek baru</span>
               </motion.div>
 
-              <h1 className="text-6xl md:text-8xl font-display font-black text-slate-900 leading-[0.9] mb-8 tracking-tighter">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-black text-slate-900 leading-[1.1] md:leading-[0.9] mb-6 md:mb-8 tracking-tighter">
                 Membangun Pengalaman <span className="text-gradient">Digital</span>.
               </h1>
               
-              <p className="text-xl md:text-2xl text-slate-600 font-medium mb-10 max-w-xl leading-relaxed">
+              <p className="text-lg md:text-2xl text-slate-600 font-medium mb-8 md:mb-10 max-w-xl leading-relaxed">
                 Halo, saya <span className="text-brand-600 font-bold">{profile.name}</span>. Seorang <span className="underline decoration-accent-pink decoration-4 underline-offset-4">{profile.title}</span> yang berdedikasi di Cirebon.
               </p>
 
-              <div className="flex flex-wrap gap-5">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-4 md:gap-5">
                 <motion.a 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   href="#contact" 
-                  className="px-10 py-5 bg-brand-600 text-white rounded-2xl font-bold text-lg hover:bg-brand-700 transition-all shadow-xl shadow-brand-200 flex items-center gap-3"
+                  className="px-8 md:px-10 py-4 md:py-5 bg-brand-600 text-white rounded-2xl font-bold text-base md:text-lg hover:bg-brand-700 transition-all shadow-xl shadow-brand-200 flex items-center justify-center gap-3"
                 >
                   Mari Berdiskusi
                   <ChevronRight size={20} />
@@ -352,7 +352,7 @@ export default function App() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handleDownloadCV}
-                  className="px-10 py-5 bg-white text-slate-900 border border-slate-200 rounded-2xl font-bold text-lg hover:bg-slate-50 transition-all shadow-lg flex items-center gap-3"
+                  className="px-8 md:px-10 py-4 md:py-5 bg-white text-slate-900 border border-slate-200 rounded-2xl font-bold text-base md:text-lg hover:bg-slate-50 transition-all shadow-lg flex items-center justify-center gap-3"
                 >
                   <FileText size={20} className="text-brand-600" />
                   Lihat CV
@@ -432,33 +432,33 @@ export default function App() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="relative z-10 grid grid-cols-2 gap-6">
-                <div className="space-y-6 pt-12">
-                  <div className="aspect-square bg-brand-50 rounded-[2.5rem] flex flex-col items-center justify-center p-8 text-center group hover:bg-brand-600 transition-all duration-500">
-                    <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-brand-600 shadow-sm mb-4 group-hover:scale-110 transition-transform">
-                      <Palette size={32} />
+              <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                <div className="space-y-4 md:space-y-6 sm:pt-12">
+                  <div className="aspect-square bg-brand-50 rounded-[2rem] md:rounded-[2.5rem] flex flex-col items-center justify-center p-6 md:p-8 text-center group hover:bg-brand-600 transition-all duration-500">
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-2xl flex items-center justify-center text-brand-600 shadow-sm mb-4 group-hover:scale-110 transition-transform">
+                      <Palette size={28} />
                     </div>
-                    <h4 className="text-xl font-bold text-slate-900 group-hover:text-white transition-colors">Desain Kreatif</h4>
+                    <h4 className="text-lg md:text-xl font-bold text-slate-900 group-hover:text-white transition-colors">Desain Kreatif</h4>
                   </div>
-                  <div className="aspect-square bg-slate-50 rounded-[2.5rem] flex flex-col items-center justify-center p-8 text-center group hover:bg-accent-pink transition-all duration-500">
-                    <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-accent-pink shadow-sm mb-4 group-hover:scale-110 transition-transform">
-                      <Edit size={32} />
+                  <div className="aspect-square bg-slate-50 rounded-[2rem] md:rounded-[2.5rem] flex flex-col items-center justify-center p-6 md:p-8 text-center group hover:bg-accent-pink transition-all duration-500">
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-2xl flex items-center justify-center text-accent-pink shadow-sm mb-4 group-hover:scale-110 transition-transform">
+                      <Edit size={28} />
                     </div>
-                    <h4 className="text-xl font-bold text-slate-900 group-hover:text-white transition-colors">Copywriting</h4>
+                    <h4 className="text-lg md:text-xl font-bold text-slate-900 group-hover:text-white transition-colors">Copywriting</h4>
                   </div>
                 </div>
-                <div className="space-y-6">
-                  <div className="aspect-square bg-slate-900 rounded-[2.5rem] flex flex-col items-center justify-center p-8 text-center group hover:bg-brand-500 transition-all duration-500">
-                    <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-white shadow-sm mb-4 group-hover:scale-110 transition-transform">
-                      <Code size={32} />
+                <div className="space-y-4 md:space-y-6">
+                  <div className="aspect-square bg-slate-900 rounded-[2rem] md:rounded-[2.5rem] flex flex-col items-center justify-center p-6 md:p-8 text-center group hover:bg-brand-500 transition-all duration-500">
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-white/10 rounded-2xl flex items-center justify-center text-white shadow-sm mb-4 group-hover:scale-110 transition-transform">
+                      <Code size={28} />
                     </div>
-                    <h4 className="text-xl font-bold text-white transition-colors">Melek Teknologi</h4>
+                    <h4 className="text-lg md:text-xl font-bold text-white transition-colors">Melek Teknologi</h4>
                   </div>
-                  <div className="aspect-square bg-brand-100 rounded-[2.5rem] flex flex-col items-center justify-center p-8 text-center group hover:bg-accent-rose transition-all duration-500">
-                    <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-accent-rose shadow-sm mb-4 group-hover:scale-110 transition-transform">
-                      <Briefcase size={32} />
+                  <div className="aspect-square bg-brand-100 rounded-[2rem] md:rounded-[2.5rem] flex flex-col items-center justify-center p-6 md:p-8 text-center group hover:bg-accent-rose transition-all duration-500">
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-2xl flex items-center justify-center text-accent-rose shadow-sm mb-4 group-hover:scale-110 transition-transform">
+                      <Briefcase size={28} />
                     </div>
-                    <h4 className="text-xl font-bold text-slate-900 group-hover:text-white transition-colors">Manajemen</h4>
+                    <h4 className="text-lg md:text-xl font-bold text-slate-900 group-hover:text-white transition-colors">Manajemen</h4>
                   </div>
                 </div>
               </div>
@@ -540,19 +540,19 @@ export default function App() {
               <div className="absolute inset-0 bg-brand-600 rounded-[3rem] rotate-2 scale-[1.02] -z-10 opacity-10 group-hover:rotate-3 transition-transform duration-500" />
               <div className="absolute inset-0 bg-accent-pink rounded-[3rem] -rotate-2 scale-[1.02] -z-10 opacity-10 group-hover:-rotate-3 transition-transform duration-500" />
               
-              <div className="bg-white p-12 md:p-20 rounded-[3rem] shadow-2xl border border-slate-100 overflow-hidden text-center">
-                <div className="w-24 h-24 bg-brand-100 rounded-3xl flex items-center justify-center text-brand-600 mx-auto mb-8">
-                  <FileText size={48} />
+              <div className="bg-white p-8 md:p-20 rounded-[2.5rem] md:rounded-[3rem] shadow-2xl border border-slate-100 overflow-hidden text-center">
+                <div className="w-20 h-20 md:w-24 md:h-24 bg-brand-100 rounded-3xl flex items-center justify-center text-brand-600 mx-auto mb-6 md:mb-8">
+                  <FileText size={40} />
                 </div>
-                <h3 className="text-3xl font-display font-black text-slate-900 mb-4">Resume Profesional</h3>
-                <p className="text-slate-600 mb-10 max-w-md mx-auto text-lg">
+                <h3 className="text-2xl md:text-3xl font-display font-black text-slate-900 mb-4">Resume Profesional</h3>
+                <p className="text-slate-600 mb-8 md:mb-10 max-w-md mx-auto text-base md:text-lg">
                   Dokumen lengkap yang merangkum kualifikasi, pengalaman kerja, dan latar belakang pendidikan saya.
                 </p>
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handleDownloadCV}
-                  className="px-12 py-5 bg-brand-600 text-white rounded-2xl font-bold text-xl flex items-center gap-3 hover:bg-brand-700 transition-all shadow-xl shadow-brand-200 mx-auto"
+                  className="px-8 md:px-12 py-4 md:py-5 bg-brand-600 text-white rounded-2xl font-bold text-lg md:text-xl flex items-center gap-3 hover:bg-brand-700 transition-all shadow-xl shadow-brand-200 mx-auto"
                 >
                   <FileText size={24} />
                   Unduh CV (PDF/JPG)
@@ -662,26 +662,26 @@ export default function App() {
                   </div>
                   
                   <div className="md:w-1/2 pl-16 md:pl-0">
-                    <div className={`bg-white p-8 md:p-10 rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-glow hover:border-brand-200 transition-all duration-500 group ${index % 2 === 0 ? 'md:ml-12' : 'md:mr-12'}`}>
-                      <div className="flex flex-wrap justify-between items-start gap-4 mb-8">
+                    <div className={`bg-white p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-glow hover:border-brand-200 transition-all duration-500 group ${index % 2 === 0 ? 'md:ml-12' : 'md:mr-12'}`}>
+                      <div className="flex flex-wrap justify-between items-start gap-4 mb-6 md:mb-8">
                         <div>
-                          <div className="inline-block px-4 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-black uppercase tracking-widest mb-4">
+                          <div className="inline-block px-4 py-1 rounded-full bg-brand-50 text-brand-700 text-[10px] md:text-xs font-black uppercase tracking-widest mb-3 md:mb-4">
                             {exp.period}
                           </div>
-                          <h3 className="text-3xl font-display font-black text-slate-900 leading-tight group-hover:text-brand-600 transition-colors">{exp.role}</h3>
-                          <div className="flex flex-wrap items-center gap-4 text-slate-500 font-bold mt-4">
-                            <div className="flex items-center gap-2 px-3 py-1 bg-slate-50 rounded-lg">
-                              <Briefcase size={16} className="text-brand-400" />
+                          <h3 className="text-2xl md:text-3xl font-display font-black text-slate-900 leading-tight group-hover:text-brand-600 transition-colors">{exp.role}</h3>
+                          <div className="flex flex-wrap items-center gap-3 md:gap-4 text-slate-500 font-bold mt-4">
+                            <div className="flex items-center gap-2 px-3 py-1 bg-slate-50 rounded-lg text-xs md:text-sm">
+                              <Briefcase size={14} className="text-brand-400" />
                               <span>{exp.company}</span>
                             </div>
-                            <div className="flex items-center gap-2 px-3 py-1 bg-slate-50 rounded-lg">
-                              <MapPin size={16} className="text-accent-pink" />
+                            <div className="flex items-center gap-2 px-3 py-1 bg-slate-50 rounded-lg text-xs md:text-sm">
+                              <MapPin size={14} className="text-accent-pink" />
                               <span>{exp.location}</span>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <p className="text-lg text-slate-600 leading-relaxed">
+                      <p className="text-base md:text-lg text-slate-600 leading-relaxed">
                         {exp.description}
                       </p>
                     </div>
@@ -703,7 +703,7 @@ export default function App() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="mb-20 text-center flex flex-col items-center">
+          <div className="mb-12 md:20 text-center flex flex-col items-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -712,11 +712,11 @@ export default function App() {
             >
               Akademik
             </motion.div>
-            <h2 className="text-5xl md:text-6xl font-display font-black mb-6">Pendidikan</h2>
-            <div className="h-2 w-24 bg-linear-to-r from-brand-400 to-accent-pink rounded-full" />
+            <h2 className="text-4xl md:text-6xl font-display font-black mb-6">Pendidikan</h2>
+            <div className="h-2 w-20 md:w-24 bg-linear-to-r from-brand-400 to-accent-pink rounded-full" />
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {profile.education.map((edu, index) => (
               <motion.div
                 key={edu.school}
@@ -724,23 +724,23 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group bg-white/5 backdrop-blur-xl p-10 rounded-[3rem] border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500"
+                className="group bg-white/5 backdrop-blur-xl p-8 md:p-10 rounded-[2.5rem] md:rounded-[3rem] border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500"
               >
-                <div className="w-16 h-16 bg-brand-500 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-brand-500/20 group-hover:scale-110 transition-transform">
-                  <GraduationCap size={32} className="text-white" />
+                <div className="w-14 h-14 md:w-16 md:h-16 bg-brand-500 rounded-2xl flex items-center justify-center mb-6 md:mb-8 shadow-lg shadow-brand-500/20 group-hover:scale-110 transition-transform">
+                  <GraduationCap size={28} className="text-white" />
                 </div>
-                <span className="text-brand-400 font-black text-sm tracking-widest uppercase">{edu.period}</span>
-                <h3 className="text-2xl font-display font-black mt-4 mb-2">{edu.school}</h3>
-                <p className="text-brand-200 font-bold mb-6">{edu.major}</p>
+                <span className="text-brand-400 font-black text-xs tracking-widest uppercase">{edu.period}</span>
+                <h3 className="text-xl md:text-2xl font-display font-black mt-4 mb-2">{edu.school}</h3>
+                <p className="text-brand-200 font-bold mb-6 text-sm md:text-base">{edu.major}</p>
                 
                 <div className="space-y-4 pt-6 border-t border-white/10">
                   <div className="flex items-center gap-3 text-slate-400">
-                    <MapPin size={18} className="text-accent-pink" />
-                    <span className="text-sm font-medium">{edu.location}</span>
+                    <MapPin size={16} className="text-accent-pink" />
+                    <span className="text-xs md:text-sm font-medium">{edu.location}</span>
                   </div>
                   <div className="flex items-center gap-3 text-slate-400">
-                    <ChevronRight size={18} className="text-brand-400" />
-                    <span className="text-sm font-bold text-white/80">{edu.status}</span>
+                    <ChevronRight size={16} className="text-brand-400" />
+                    <span className="text-xs md:text-sm font-bold text-white/80">{edu.status}</span>
                   </div>
                 </div>
               </motion.div>
@@ -757,7 +757,7 @@ export default function App() {
             <div className="absolute top-0 right-0 w-96 h-96 bg-brand-600 rounded-full blur-[120px] -mr-48 -mt-48 opacity-40" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-pink rounded-full blur-[120px] -ml-48 -mb-48 opacity-30" />
             
-            <div className="grid lg:grid-cols-2 gap-20 items-center relative z-10">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
               <div>
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -767,14 +767,14 @@ export default function App() {
                 >
                   Kontak
                 </motion.div>
-                <h2 className="text-5xl md:text-7xl font-display font-black text-white mb-8 leading-tight">
+                <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-black text-white mb-6 md:mb-8 leading-tight">
                   Mari Bangun Sesuatu yang <span className="text-brand-400">Luar Biasa</span>.
                 </h2>
-                <p className="text-xl text-slate-400 mb-12 max-w-md leading-relaxed">
+                <p className="text-lg md:text-xl text-slate-400 mb-8 md:mb-12 max-w-md leading-relaxed">
                   Punya proyek dalam pikiran? Saya selalu terbuka untuk mendiskusikan peluang baru dan ide-ide kreatif.
                 </p>
                 
-                <div className="space-y-8">
+                <div className="space-y-6 md:space-y-8">
                   {[
                     { icon: <Mail size={24} />, label: 'Email Saya', value: profile.contact.email, href: `mailto:${profile.contact.email}`, color: 'bg-brand-500' },
                     { icon: <Phone size={24} />, label: 'Telepon Saya', value: profile.contact.phone, href: `tel:${profile.contact.phone}`, color: 'bg-accent-pink' },
@@ -786,14 +786,14 @@ export default function App() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1 }}
-                      className="flex items-center gap-6 group"
+                      className="flex items-center gap-4 md:gap-6 group"
                     >
-                      <div className={`w-14 h-14 ${item.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
+                      <div className={`w-12 h-12 md:w-14 md:h-14 ${item.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform shrink-0`}>
                         <div className="text-white">{item.icon}</div>
                       </div>
-                      <div>
-                        <p className="text-xs font-black text-slate-500 uppercase tracking-widest mb-1">{item.label}</p>
-                        <a href={item.href} className="text-xl font-bold text-white hover:text-brand-400 transition-colors">
+                      <div className="min-w-0">
+                        <p className="text-[10px] md:text-xs font-black text-slate-500 uppercase tracking-widest mb-1">{item.label}</p>
+                        <a href={item.href} className="text-base md:text-xl font-bold text-white hover:text-brand-400 transition-colors truncate block">
                           {item.value}
                         </a>
                       </div>
@@ -801,7 +801,7 @@ export default function App() {
                   ))}
                 </div>
 
-                <div className="flex gap-5 mt-16">
+                <div className="flex gap-4 md:gap-5 mt-12 md:mt-16">
                   {[
                     { icon: <Instagram size={24} />, href: profile.contact.socials.instagram },
                     { icon: <Linkedin size={24} />, href: profile.contact.socials.linkedin },
@@ -813,7 +813,7 @@ export default function App() {
                       href={social.href} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="w-14 h-14 bg-white/5 backdrop-blur-md rounded-2xl flex items-center justify-center text-white border border-white/10 hover:bg-white hover:text-slate-900 transition-all"
+                      className="w-12 h-12 md:w-14 md:h-14 bg-white/5 backdrop-blur-md rounded-2xl flex items-center justify-center text-white border border-white/10 hover:bg-white hover:text-slate-900 transition-all"
                     >
                       {social.icon}
                     </motion.a>
@@ -825,12 +825,12 @@ export default function App() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="bg-white p-10 md:p-12 rounded-[3rem] shadow-2xl"
+                className="bg-white p-6 sm:p-10 md:p-12 rounded-[2.5rem] md:rounded-[3rem] shadow-2xl"
               >
-                <form className="space-y-8" onSubmit={handleSubmit}>
-                  <div className="grid sm:grid-cols-2 gap-8">
-                    <div className="space-y-3">
-                      <label className="text-sm font-black text-slate-400 uppercase tracking-widest ml-1">Nama</label>
+                <form className="space-y-6 md:space-y-8" onSubmit={handleSubmit}>
+                  <div className="grid sm:grid-cols-2 gap-6 md:gap-8">
+                    <div className="space-y-2 md:space-y-3">
+                      <label className="text-xs md:text-sm font-black text-slate-400 uppercase tracking-widest ml-1">Nama</label>
                       <input 
                         type="text" 
                         name="name"
@@ -838,24 +838,24 @@ export default function App() {
                         onChange={handleChange}
                         placeholder="Nama Anda"
                         required
-                        className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-brand-500/10 focus:border-brand-500 transition-all font-bold"
+                        className="w-full px-5 md:px-6 py-3 md:py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-brand-500/10 focus:border-brand-500 transition-all font-bold text-sm md:text-base"
                       />
                     </div>
-                    <div className="space-y-3">
-                      <label className="text-sm font-black text-slate-400 uppercase tracking-widest ml-1">Email</label>
+                    <div className="space-y-2 md:space-y-3">
+                      <label className="text-xs md:text-sm font-black text-slate-400 uppercase tracking-widest ml-1">Email</label>
                       <input 
                         type="email" 
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="your@email.com"
+                        placeholder="email@anda.com"
                         required
-                        className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-brand-500/10 focus:border-brand-500 transition-all font-bold"
+                        className="w-full px-5 md:px-6 py-3 md:py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-brand-500/10 focus:border-brand-500 transition-all font-bold text-sm md:text-base"
                       />
                     </div>
                   </div>
-                  <div className="space-y-3">
-                    <label className="text-sm font-black text-slate-400 uppercase tracking-widest ml-1">Subjek</label>
+                  <div className="space-y-2 md:space-y-3">
+                    <label className="text-xs md:text-sm font-black text-slate-400 uppercase tracking-widest ml-1">Subjek</label>
                     <input 
                       type="text" 
                       name="subject"
@@ -863,11 +863,11 @@ export default function App() {
                       onChange={handleChange}
                       placeholder="Tentang apa ini?"
                       required
-                      className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-brand-500/10 focus:border-brand-500 transition-all font-bold"
+                      className="w-full px-5 md:px-6 py-3 md:py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-brand-500/10 focus:border-brand-500 transition-all font-bold text-sm md:text-base"
                     />
                   </div>
-                  <div className="space-y-3">
-                    <label className="text-sm font-black text-slate-400 uppercase tracking-widest ml-1">Pesan</label>
+                  <div className="space-y-2 md:space-y-3">
+                    <label className="text-xs md:text-sm font-black text-slate-400 uppercase tracking-widest ml-1">Pesan</label>
                     <textarea 
                       name="message"
                       value={formData.message}
@@ -875,7 +875,7 @@ export default function App() {
                       rows={4}
                       placeholder="Ceritakan lebih banyak tentang proyek Anda..."
                       required
-                      className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-brand-500/10 focus:border-brand-500 transition-all font-bold resize-none"
+                      className="w-full px-5 md:px-6 py-3 md:py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-brand-500/10 focus:border-brand-500 transition-all font-bold text-sm md:text-base resize-none"
                     />
                   </div>
                   <motion.button 
@@ -883,7 +883,7 @@ export default function App() {
                     whileTap={{ scale: 0.98 }}
                     type="submit"
                     disabled={isSent}
-                    className={`w-full py-5 rounded-2xl font-black text-lg transition-all shadow-xl ${
+                    className={`w-full py-4 md:py-5 rounded-2xl font-black text-base md:text-lg transition-all shadow-xl ${
                       isSent 
                         ? 'bg-green-500 text-white shadow-green-200' 
                         : 'bg-brand-600 text-white hover:bg-brand-700 shadow-brand-200'
@@ -891,7 +891,7 @@ export default function App() {
                   >
                     {isSent ? 'Pesan Terkirim!' : 'Kirim Pesan'}
                   </motion.button>
-                  <p className="text-center text-xs font-bold text-slate-400 uppercase tracking-widest">
+                  <p className="text-center text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-widest">
                     Balasan langsung dalam 24 jam
                   </p>
                 </form>
@@ -902,17 +902,17 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="py-20 bg-slate-50 relative overflow-hidden">
+      <footer className="py-12 md:py-20 bg-slate-50 relative overflow-hidden border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-12">
-            <div className="text-3xl font-display font-black tracking-tighter">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-12">
+            <div className="text-3xl font-display font-black tracking-tighter text-center md:text-left">
               <span className="text-brand-600">UMAR</span>
               <span className="text-slate-900">.F</span>
             </div>
             
-            <div className="flex flex-wrap justify-center gap-8">
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-8">
               {['Tentang', 'Keahlian', 'Pengalaman', 'Pendidikan', 'Kontak'].map((item) => (
-                <a key={item} href={`#${item === 'Tentang' ? 'about' : item === 'Keahlian' ? 'skills' : item === 'Pengalaman' ? 'experience' : item === 'Pendidikan' ? 'education' : 'contact'}`} className="text-sm font-black text-slate-400 hover:text-brand-600 uppercase tracking-widest transition-colors">
+                <a key={item} href={`#${item === 'Tentang' ? 'about' : item === 'Keahlian' ? 'skills' : item === 'Pengalaman' ? 'experience' : item === 'Pendidikan' ? 'education' : 'contact'}`} className="text-xs sm:text-sm font-black text-slate-400 hover:text-brand-600 uppercase tracking-widest transition-colors">
                   {item}
                 </a>
               ))}
@@ -937,11 +937,11 @@ export default function App() {
             </div>
           </div>
           
-          <div className="mt-20 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6">
-            <p className="text-slate-400 text-sm font-bold uppercase tracking-widest">
+          <div className="mt-12 md:mt-20 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p className="text-slate-400 text-[10px] sm:text-sm font-bold uppercase tracking-widest text-center">
               © {new Date().getFullYear()} Umar Fakhrudin. Dibuat dengan Sepenuh Hati.
             </p>
-            <div className="flex items-center gap-2 text-slate-400 text-sm font-bold uppercase tracking-widest">
+            <div className="flex items-center gap-2 text-slate-400 text-[10px] sm:text-sm font-bold uppercase tracking-widest">
               <span>Didesain di</span>
               <span className="text-brand-600">Cirebon</span>
             </div>
