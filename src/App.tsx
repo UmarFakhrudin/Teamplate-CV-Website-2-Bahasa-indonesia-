@@ -23,110 +23,121 @@ import {
   Linkedin,
   Instagram,
   Menu,
-  X
+  X,
+  Sun,
+  Moon,
+  MessageCircle
 } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useMotionValue, useSpring } from 'motion/react';
 
 // --- Data ---
 const profile = {
-  name: "UMAR FAKHRUDIN",
-  title: "Copywriter & Desain Grafis",
-  summary: "Saya adalah lulusan Sekolah Menengah Kejuruan (SMK) jurusan Teknik Komputer dan Jaringan. Saya mahir dalam pengoperasian komputer dan terampil menggunakan Photoshop, Microsoft Word, Microsoft Excel, Microsoft PowerPoint, dll. Saya adalah orang yang sangat disiplin dalam mengelola waktu, mudah beradaptasi, percaya diri, dan mampu berkomunikasi dengan baik.",
+  name: "SITI AMINAH",
+  title: "Social Media Specialist & Content Creator",
+  summary: "Saya adalah lulusan Sarjana Komunikasi yang memiliki minat besar dalam dunia pemasaran digital. Saya mahir dalam mengelola media sosial, membuat konten kreatif, dan menganalisis tren pasar. Saya adalah individu yang kreatif, teliti, dan memiliki kemampuan komunikasi yang sangat baik.",
   contact: {
-    phone: "0896-7666-8137",
-    email: "umar.fakhrudin17@gmail.com",
-    location: "Kec. Arjawinangun Kab. Cirebon",
+    phone: "0812-3456-7890",
+    email: "siti.aminah@email.com",
+    location: "Kec. Menteng, Jakarta Pusat",
     socials: {
-      linkedin: "https://www.linkedin.com/in/umar-fakhrudin-9a5786268",
-      instagram: "https://www.instagram.com/FakhrudinUmar",
-      github: "https://github.com/UmarFakhrudin"
+      linkedin: "https://www.linkedin.com/in/siti-aminah-dummy",
+      instagram: "https://www.instagram.com/SitiAminah_Dummy",
+      github: "https://github.com/SitiAminahDummy"
     }
   },
-  profileImage: "/foto_saya.jpg",
+  profileImage: "https://picsum.photos/seed/woman/800/800",
   resumeImage: "/cv_saya.jpg",
   skills: [
-    { name: "Adobe Photoshop", level: 90 },
-    { name: "Microsoft Word", level: 95 },
-    { name: "Microsoft Excel", level: 85 },
-    { name: "Instalasi Jaringan", level: 80 },
-    { name: "Desain Grafis", level: 88 }
+    { name: "Social Media Management", level: 92 },
+    { name: "Content Strategy", level: 90 },
+    { name: "Copywriting", level: 88 },
+    { name: "Canva & CapCut", level: 95 },
+    { name: "Digital Analytics", level: 85 }
   ],
   experience: [
     {
-      company: "FLORIE X PINNATA STORE",
-      role: "Admin Back Office",
-      period: "2024 - Sekarang",
-      location: "Bayalangu",
-      description: "Bertanggung jawab atas Manajemen Inventaris & Stok (Kontrol Inventaris, Pemantauan Tanggal Kedaluwarsa, Administrasi Penjualan & Pembelian, Manajemen Data Produk, Koordinasi Operasional, Pelaporan, Koordinasi Logistik & Stok)."
+      company: "CREATIVE HUB INDONESIA",
+      role: "Social Media Manager",
+      period: "2022 - Sekarang",
+      location: "Jakarta",
+      description: "Mengelola strategi konten untuk berbagai platform media sosial, meningkatkan engagement audiens sebesar 40%, dan berkolaborasi dengan tim kreatif untuk kampanye iklan."
     },
     {
-      company: "DEPO JAGO",
-      role: "Staff General Affair",
-      period: "2023 - 2024",
-      location: "Arjawinangun",
-      description: "Bertanggung jawab mengelola seluruh operasional fasilitas kantor dan pengadaan aset perusahaan. Berpengalaman dalam mencapai efisiensi anggaran operasional, mengelola hubungan dengan vendor eksternal, dan memastikan seluruh aspek hukum dan keselamatan lingkungan kerja terpenuhi sesuai standar perusahaan."
+      company: "DIGITAL WAVE AGENCY",
+      role: "Content Writer",
+      period: "2020 - 2022",
+      location: "Bandung",
+      description: "Menulis artikel blog, caption media sosial, dan naskah video kreatif yang menarik minat audiens target."
     },
     {
-      company: "J&T EXPRESS CP",
-      role: "Leader / Shift Lead Collection Point",
-      period: "2020 - 2023",
-      location: "Tegalgubug",
-      description: "Mengawasi dan memantau alur kerja tim sesuai SOP, Memantau proses pemindaian barang untuk penerimaan dan pengiriman, Memantau pengiriman harian, mingguan, dan bulanan, Menginput alamat pengiriman barang atau surat, mencatat keuangan harian, mingguan, dan bulanan menggunakan sistem agen dan Microsoft Excel."
-    },
-    {
-      company: "POS EXPRESS INDONESIA",
-      role: "Sales Counter Officer",
+      company: "STARTUP NEXUS",
+      role: "Intern Marketing",
       period: "2019 - 2020",
-      location: "Tegalgubug",
-      description: "Menginput alamat pengiriman barang atau surat, mencatat keuangan harian, mingguan, dan bulanan menggunakan sistem agen dan Microsoft Excel."
-    },
-    {
-      company: "JNE EXPRES",
-      role: "Sales Counter Officer",
-      period: "2018 - 2019",
-      location: "Tegalgubug",
-      description: "Menginput alamat pengiriman barang atau surat, mencatat keuangan harian, mingguan, dan bulanan menggunakan sistem agen dan Microsoft Excel."
+      location: "Jakarta",
+      description: "Membantu tim pemasaran dalam riset pasar dan pengelolaan basis data pelanggan."
     }
   ],
   education: [
     {
-      school: "SMK PLUS AL-HILAL",
-      period: "2015 - 2018",
-      major: "Teknik Komputer dan Jaringan",
-      location: "Desa Tegalgubug, Kec. Arjawinangun Kab. Cirebon",
-      status: "Lulus dengan Baik"
+      school: "UNIVERSITAS INDONESIA",
+      period: "2016 - 2020",
+      major: "Ilmu Komunikasi",
+      location: "Depok",
+      status: "Lulus dengan IPK 3.85"
     },
     {
-      school: "MTS AL-HILAL",
-      period: "2012 - 2015",
-      major: "Siswa",
-      location: "Desa Tegalgubug, Kec. Arjawinangun Kab. Cirebon",
-      status: "Lulus dengan Baik"
-    },
-    {
-      school: "MI NAHDLATUT TAIBIN",
-      period: "2006 - 2012",
-      major: "Siswa",
-      location: "Desa Majasri, Kec. Susukan Kab. Cirebon",
+      school: "SMA NEGERI 1 JAKARTA",
+      period: "2013 - 2016",
+      major: "IPS",
+      location: "Jakarta Pusat",
       status: "Lulus dengan Baik"
     }
   ],
   languages: [
-    { name: "Inggris", level: 75 },
+    { name: "Inggris", level: 85 },
     { name: "Indonesia", level: 100 },
-    { name: "Jawa", level: 100 }
+    { name: "Korea", level: 60 }
   ],
   hobbies: [
-    { name: "Traveling", icon: <Plane className="w-6 h-6" /> },
-    { name: "Sepak Bola", icon: <Trophy className="w-6 h-6" /> },
-    { name: "Editing", icon: <Edit className="w-6 h-6" /> },
-    { name: "Web Dev", icon: <Code className="w-6 h-6" /> }
+    { name: "Fotografi", icon: <Edit className="w-6 h-6" /> },
+    { name: "Membaca", icon: <FileText className="w-6 h-6" /> },
+    { name: "Yoga", icon: <Trophy className="w-6 h-6" /> },
+    { name: "Memasak", icon: <Palette className="w-6 h-6" /> }
   ]
 };
 
 // --- Components ---
 
-const Navbar = () => {
+const CursorFollower = () => {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const springConfig = { damping: 25, stiffness: 150 };
+  const cursorX = useSpring(mouseX, springConfig);
+  const cursorY = useSpring(mouseY, springConfig);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseX.set(e.clientX - 16);
+      mouseY.set(e.clientY - 16);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [mouseX, mouseY]);
+
+  return (
+    <motion.div 
+      className="cursor-follower"
+      style={{
+        x: cursorX,
+        y: cursorY,
+      }}
+    />
+  );
+};
+
+const Navbar = ({ isDark, toggleTheme }: { isDark: boolean, toggleTheme: () => void }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -153,8 +164,8 @@ const Navbar = () => {
             animate={{ opacity: 1, x: 0 }}
             className="text-2xl font-display font-black tracking-tight"
           >
-            <span className="text-brand-600">UMAR</span>
-            <span className="text-slate-900">.F</span>
+            <span className="text-brand-600">SITI</span>
+            <span className="text-slate-900 dark:text-white">.A</span>
           </motion.div>
           
           {/* Desktop Nav */}
@@ -163,24 +174,39 @@ const Navbar = () => {
               <a 
                 key={link.name} 
                 href={link.href}
-                className="px-4 py-2 text-sm font-semibold text-slate-600 hover:text-brand-600 hover:bg-brand-50 rounded-xl transition-all"
+                className="px-4 py-2 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-brand-50 dark:hover:bg-white/5 rounded-xl transition-all"
               >
                 {link.name}
               </a>
             ))}
+            
+            <button
+              onClick={toggleTheme}
+              className="ml-4 p-2.5 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10 rounded-xl transition-all"
+              aria-label="Toggle Theme"
+            >
+              {isDark ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+
             <a 
               href="#contact"
-              className="ml-4 px-6 py-2.5 bg-brand-600 text-white text-sm font-bold rounded-xl shadow-lg shadow-brand-200 hover:bg-brand-700 hover:-translate-y-0.5 transition-all"
+              className="ml-4 px-6 py-2.5 bg-brand-600 text-white text-sm font-bold rounded-xl shadow-lg shadow-brand-200 dark:shadow-brand-900/20 hover:bg-brand-700 hover:-translate-y-0.5 transition-all"
             >
               Hubungi Saya
             </a>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:flex items-center gap-2 md:hidden">
+            <button
+              onClick={toggleTheme}
+              className="p-2 text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 rounded-xl transition-colors"
+            >
+              {isDark ? <Sun size={24} /> : <Moon size={24} />}
+            </button>
             <button 
               onClick={() => setIsOpen(!isOpen)} 
-              className="p-2 text-slate-900 hover:bg-slate-100 rounded-xl transition-colors"
+              className="p-2 text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 rounded-xl transition-colors"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -195,7 +221,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-4 right-4 mt-2 md:hidden bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden z-50 p-4"
+            className="absolute top-full left-4 right-4 mt-2 md:hidden bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-100 dark:border-white/10 overflow-hidden z-50 p-4"
           >
             <div className="flex flex-col space-y-1">
               {navLinks.map((link) => (
@@ -203,7 +229,7 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="px-4 py-3 text-lg font-bold text-slate-700 hover:text-brand-600 hover:bg-brand-50 rounded-2xl transition-all"
+                  className="px-4 py-3 text-lg font-bold text-slate-700 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-brand-50 dark:hover:bg-white/5 rounded-2xl transition-all"
                 >
                   {link.name}
                 </a>
@@ -229,7 +255,7 @@ const SectionHeading = ({ children, subtitle, center = false }: { children: Reac
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
-      className="inline-block px-4 py-1.5 rounded-full bg-brand-100 text-brand-700 text-xs font-black tracking-widest uppercase mb-4"
+      className="inline-block px-4 py-1.5 rounded-full bg-brand-100 dark:bg-brand-900/30 text-brand-700 dark:text-brand-300 text-xs font-black tracking-widest uppercase mb-4"
     >
       {children}
     </motion.div>
@@ -237,7 +263,7 @@ const SectionHeading = ({ children, subtitle, center = false }: { children: Reac
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-slate-900 mb-6 leading-tight"
+      className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-slate-900 dark:text-white mb-6 leading-tight"
     >
       {subtitle}
     </motion.h2>
@@ -252,6 +278,18 @@ const SectionHeading = ({ children, subtitle, center = false }: { children: Reac
 );
 
 export default function App() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDark]);
+
+  const toggleTheme = () => setIsDark(!isDark);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -266,21 +304,19 @@ export default function App() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSendMessage = (type: 'whatsapp' | 'email') => {
     const { name, email, subject, message } = formData;
+    const bodyText = `Halo ${profile.name.split(' ')[0]},\n\nNama: ${name}\nEmail: ${email}\n\nPesan:\n${message}`;
     
-    // Construct the direct Gmail compose link
-    const body = `Halo Umar,%0D%0A%0D%0ANama: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0APesan:%0D%0A${message}`;
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${profile.contact.email}&su=${encodeURIComponent(subject || 'Kontak dari Portfolio')}&body=${body}`;
+    if (type === 'whatsapp') {
+      const waUrl = `https://wa.me/${profile.contact.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(bodyText)}`;
+      window.open(waUrl, '_blank');
+    } else {
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${profile.contact.email}&su=${encodeURIComponent(subject || 'Kontak dari Portfolio')}&body=${encodeURIComponent(bodyText)}`;
+      window.open(gmailUrl, '_blank');
+    }
     
-    // Open Gmail in a new tab
-    window.open(gmailUrl, '_blank');
-    
-    // Show success message
     setIsSent(true);
-    
-    // Reset form after 3 seconds
     setTimeout(() => {
       setIsSent(false);
       setFormData({ name: '', email: '', subject: '', message: '' });
@@ -297,17 +333,18 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-brand-100 selection:text-brand-900">
-      <Navbar />
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 font-sans text-slate-900 dark:text-slate-50 selection:bg-brand-100 dark:selection:bg-brand-900/30 selection:text-brand-900 dark:selection:text-brand-100 transition-colors duration-300">
+      <CursorFollower />
+      <Navbar isDark={isDark} toggleTheme={toggleTheme} />
 
       {/* Hero Section */}
       <header className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden">
-          <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-brand-200/30 rounded-full blur-[120px]" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-accent-pink/20 rounded-full blur-[100px]" />
-          <div className="absolute top-[20%] left-[10%] w-24 h-24 border-2 border-brand-200 rounded-full animate-pulse" />
-          <div className="absolute bottom-[20%] right-[15%] w-16 h-16 border-2 border-accent-rose/30 rounded-lg rotate-45 animate-bounce" />
+          <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-brand-200/30 dark:bg-brand-900/20 rounded-full blur-[120px]" />
+          <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-accent-pink/20 dark:bg-accent-pink/10 rounded-full blur-[100px]" />
+          <div className="absolute top-[20%] left-[10%] w-24 h-24 border-2 border-brand-200 dark:border-brand-800 rounded-full animate-pulse" />
+          <div className="absolute bottom-[20%] right-[15%] w-16 h-16 border-2 border-accent-rose/30 dark:border-accent-rose/10 rounded-lg rotate-45 animate-bounce" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -321,21 +358,21 @@ export default function App() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-slate-100 mb-8"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-white/10 mb-8"
               >
                 <span className="relative flex h-3 w-3">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
                 </span>
-                <span className="text-sm font-bold text-slate-600 tracking-tight">Tersedia untuk proyek baru</span>
+                <span className="text-sm font-bold text-slate-600 dark:text-slate-400 tracking-tight">Tersedia untuk proyek baru</span>
               </motion.div>
 
-              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-black text-slate-900 leading-[1.1] md:leading-[0.9] mb-6 md:mb-8 tracking-tighter">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-black text-slate-900 dark:text-white leading-[1.1] md:leading-[0.9] mb-6 md:mb-8 tracking-tighter">
                 Membangun Pengalaman <span className="text-gradient">Digital</span>.
               </h1>
               
-              <p className="text-lg md:text-2xl text-slate-600 font-medium mb-8 md:mb-10 max-w-xl leading-relaxed">
-                Halo, saya <span className="text-brand-600 font-bold">{profile.name}</span>. Seorang <span className="underline decoration-accent-pink decoration-4 underline-offset-4">{profile.title}</span> yang berdedikasi di Cirebon.
+              <p className="text-lg md:text-2xl text-slate-600 dark:text-slate-400 font-medium mb-8 md:mb-10 max-w-xl leading-relaxed">
+                Halo, saya <span className="text-brand-600 dark:text-brand-400 font-bold">{profile.name}</span>. Seorang <span className="underline decoration-accent-pink decoration-4 underline-offset-4">{profile.title}</span> yang berdedikasi di Jakarta.
               </p>
 
               <div className="flex flex-col sm:flex-row flex-wrap gap-4 md:gap-5">
@@ -343,7 +380,7 @@ export default function App() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   href="#contact" 
-                  className="px-8 md:px-10 py-4 md:py-5 bg-brand-600 text-white rounded-2xl font-bold text-base md:text-lg hover:bg-brand-700 transition-all shadow-xl shadow-brand-200 flex items-center justify-center gap-3"
+                  className="px-8 md:px-10 py-4 md:py-5 bg-brand-600 text-white rounded-2xl font-bold text-base md:text-lg hover:bg-brand-700 transition-all shadow-xl shadow-brand-200 dark:shadow-brand-900/40 flex items-center justify-center gap-3"
                 >
                   Mari Berdiskusi
                   <ChevronRight size={20} />
@@ -352,9 +389,9 @@ export default function App() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handleDownloadCV}
-                  className="px-8 md:px-10 py-4 md:py-5 bg-white text-slate-900 border border-slate-200 rounded-2xl font-bold text-base md:text-lg hover:bg-slate-50 transition-all shadow-lg flex items-center justify-center gap-3"
+                  className="px-8 md:px-10 py-4 md:py-5 bg-white dark:bg-slate-900 text-slate-900 dark:text-white border border-slate-200 dark:border-white/10 rounded-2xl font-bold text-base md:text-lg hover:bg-slate-50 dark:hover:bg-white/5 transition-all shadow-lg flex items-center justify-center gap-3"
                 >
-                  <FileText size={20} className="text-brand-600" />
+                  <FileText size={20} className="text-brand-600 dark:text-brand-400" />
                   Lihat CV
                 </motion.button>
               </div>
@@ -405,15 +442,15 @@ export default function App() {
               <motion.div 
                 animate={{ y: [0, -20, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -right-12 top-1/4 z-20 bg-white p-6 rounded-[2.5rem] shadow-2xl border border-slate-100 hidden xl:block"
+                className="absolute -right-12 top-1/4 z-20 bg-white dark:bg-slate-900 p-6 rounded-[2.5rem] shadow-2xl border border-slate-100 dark:border-white/10 hidden xl:block"
               >
                 <div className="flex items-center gap-5">
-                  <div className="w-14 h-14 bg-brand-100 rounded-2xl flex items-center justify-center text-brand-600">
+                  <div className="w-14 h-14 bg-brand-100 dark:bg-brand-900/30 rounded-2xl flex items-center justify-center text-brand-600 dark:text-brand-400">
                     <Trophy size={28} />
                   </div>
                   <div>
                     <p className="text-xs font-black text-slate-400 uppercase tracking-widest">Pengalaman</p>
-                    <p className="text-xl font-bold text-slate-900">7+ Tahun</p>
+                    <p className="text-xl font-bold text-slate-900 dark:text-white">7+ Tahun</p>
                   </div>
                 </div>
               </motion.div>
@@ -423,7 +460,7 @@ export default function App() {
       </header>
 
       {/* About Section */}
-      <section id="about" className="py-32 bg-white relative overflow-hidden">
+      <section id="about" className="py-32 bg-white dark:bg-slate-950 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <motion.div
@@ -434,36 +471,36 @@ export default function App() {
             >
               <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                 <div className="space-y-4 md:space-y-6 sm:pt-12">
-                  <div className="aspect-square bg-brand-50 rounded-[2rem] md:rounded-[2.5rem] flex flex-col items-center justify-center p-6 md:p-8 text-center group hover:bg-brand-600 transition-all duration-500">
-                    <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-2xl flex items-center justify-center text-brand-600 shadow-sm mb-4 group-hover:scale-110 transition-transform">
+                  <div className="aspect-square bg-brand-50 dark:bg-brand-900/10 rounded-[2rem] md:rounded-[2.5rem] flex flex-col items-center justify-center p-6 md:p-8 text-center group hover:bg-brand-600 transition-all duration-500">
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center text-brand-600 dark:text-brand-400 shadow-sm mb-4 group-hover:scale-110 transition-transform">
                       <Palette size={28} />
                     </div>
-                    <h4 className="text-lg md:text-xl font-bold text-slate-900 group-hover:text-white transition-colors">Desain Kreatif</h4>
+                    <h4 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white group-hover:text-white transition-colors">Desain Kreatif</h4>
                   </div>
-                  <div className="aspect-square bg-slate-50 rounded-[2rem] md:rounded-[2.5rem] flex flex-col items-center justify-center p-6 md:p-8 text-center group hover:bg-accent-pink transition-all duration-500">
-                    <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-2xl flex items-center justify-center text-accent-pink shadow-sm mb-4 group-hover:scale-110 transition-transform">
+                  <div className="aspect-square bg-slate-50 dark:bg-slate-900/40 rounded-[2rem] md:rounded-[2.5rem] flex flex-col items-center justify-center p-6 md:p-8 text-center group hover:bg-accent-pink transition-all duration-500">
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center text-accent-pink shadow-sm mb-4 group-hover:scale-110 transition-transform">
                       <Edit size={28} />
                     </div>
-                    <h4 className="text-lg md:text-xl font-bold text-slate-900 group-hover:text-white transition-colors">Copywriting</h4>
+                    <h4 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white group-hover:text-white transition-colors">Copywriting</h4>
                   </div>
                 </div>
                 <div className="space-y-4 md:space-y-6">
-                  <div className="aspect-square bg-slate-900 rounded-[2rem] md:rounded-[2.5rem] flex flex-col items-center justify-center p-6 md:p-8 text-center group hover:bg-brand-500 transition-all duration-500">
+                  <div className="aspect-square bg-slate-900 dark:bg-slate-800 rounded-[2rem] md:rounded-[2.5rem] flex flex-col items-center justify-center p-6 md:p-8 text-center group hover:bg-brand-500 transition-all duration-500">
                     <div className="w-12 h-12 md:w-16 md:h-16 bg-white/10 rounded-2xl flex items-center justify-center text-white shadow-sm mb-4 group-hover:scale-110 transition-transform">
                       <Code size={28} />
                     </div>
                     <h4 className="text-lg md:text-xl font-bold text-white transition-colors">Melek Teknologi</h4>
                   </div>
-                  <div className="aspect-square bg-brand-100 rounded-[2rem] md:rounded-[2.5rem] flex flex-col items-center justify-center p-6 md:p-8 text-center group hover:bg-accent-rose transition-all duration-500">
-                    <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-2xl flex items-center justify-center text-accent-rose shadow-sm mb-4 group-hover:scale-110 transition-transform">
+                  <div className="aspect-square bg-brand-100 dark:bg-brand-900/20 rounded-[2rem] md:rounded-[2.5rem] flex flex-col items-center justify-center p-6 md:p-8 text-center group hover:bg-accent-rose transition-all duration-500">
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center text-accent-rose shadow-sm mb-4 group-hover:scale-110 transition-transform">
                       <Briefcase size={28} />
                     </div>
-                    <h4 className="text-lg md:text-xl font-bold text-slate-900 group-hover:text-white transition-colors">Manajemen</h4>
+                    <h4 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white group-hover:text-white transition-colors">Manajemen</h4>
                   </div>
                 </div>
               </div>
               {/* Background circle */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-brand-50 rounded-full -z-0 opacity-50" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-brand-50 dark:bg-brand-900/5 rounded-full -z-0 opacity-50" />
             </motion.div>
 
             <div className="relative">
@@ -475,14 +512,14 @@ export default function App() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-xl text-slate-600 leading-relaxed mb-10"
+                className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed mb-10"
               >
                 {profile.summary}
               </motion.p>
 
               <div className="grid sm:grid-cols-2 gap-8 mb-12">
                 {[
-                  { icon: <MapPin className="text-brand-600" />, label: 'Lokasi', value: profile.contact.location },
+                  { icon: <MapPin className="text-brand-600 dark:text-brand-400" />, label: 'Lokasi', value: profile.contact.location },
                   { icon: <Mail className="text-accent-pink" />, label: 'Email', value: profile.contact.email },
                   { icon: <Phone className="text-accent-rose" />, label: 'Telepon', value: profile.contact.phone },
                   { icon: <Globe className="text-accent-indigo" />, label: 'Bahasa', value: 'Indo, Jawa, Inggris' }
@@ -493,14 +530,14 @@ export default function App() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
-                    className="flex items-center gap-5 p-4 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-slate-100 transition-all"
+                    className="flex items-center gap-5 p-4 rounded-3xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-white/10 hover:bg-white dark:hover:bg-slate-900 hover:shadow-xl hover:shadow-slate-100 dark:hover:shadow-brand-900/10 transition-all"
                   >
-                    <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm">
+                    <div className="w-12 h-12 bg-white dark:bg-slate-800 rounded-2xl flex items-center justify-center shadow-sm">
                       {item.icon}
                     </div>
                     <div>
                       <p className="text-xs font-black text-slate-400 uppercase tracking-widest">{item.label}</p>
-                      <p className="text-sm font-bold text-slate-900 truncate max-w-[150px]">{item.value}</p>
+                      <p className="text-sm font-bold text-slate-900 dark:text-white truncate max-w-[150px]">{item.value}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -508,7 +545,7 @@ export default function App() {
 
               <div className="flex gap-4">
                 {profile.languages.map((lang) => (
-                  <div key={lang.name} className="px-5 py-2 bg-brand-50 text-brand-700 rounded-full text-sm font-bold border border-brand-100">
+                  <div key={lang.name} className="px-5 py-2 bg-brand-50 dark:bg-brand-900/30 text-brand-700 dark:text-brand-300 rounded-full text-sm font-bold border border-brand-100 dark:border-brand-800">
                     {lang.name} {lang.level}%
                   </div>
                 ))}
@@ -519,9 +556,9 @@ export default function App() {
       </section>
 
       {/* Resume Section */}
-      <section id="resume" className="py-32 bg-slate-50 relative overflow-hidden">
+      <section id="resume" className="py-32 bg-slate-50 dark:bg-slate-900/50 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full -z-10">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-brand-100/20 rounded-full blur-[120px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-brand-100/20 dark:bg-brand-900/10 rounded-full blur-[120px]" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -540,19 +577,19 @@ export default function App() {
               <div className="absolute inset-0 bg-brand-600 rounded-[3rem] rotate-2 scale-[1.02] -z-10 opacity-10 group-hover:rotate-3 transition-transform duration-500" />
               <div className="absolute inset-0 bg-accent-pink rounded-[3rem] -rotate-2 scale-[1.02] -z-10 opacity-10 group-hover:-rotate-3 transition-transform duration-500" />
               
-              <div className="bg-white p-8 md:p-20 rounded-[2.5rem] md:rounded-[3rem] shadow-2xl border border-slate-100 overflow-hidden text-center">
-                <div className="w-20 h-20 md:w-24 md:h-24 bg-brand-100 rounded-3xl flex items-center justify-center text-brand-600 mx-auto mb-6 md:mb-8">
+              <div className="bg-white dark:bg-slate-900 p-8 md:p-20 rounded-[2.5rem] md:rounded-[3rem] shadow-2xl border border-slate-100 dark:border-white/10 overflow-hidden text-center">
+                <div className="w-20 h-20 md:w-24 md:h-24 bg-brand-100 dark:bg-brand-900/30 rounded-3xl flex items-center justify-center text-brand-600 dark:text-brand-400 mx-auto mb-6 md:mb-8">
                   <FileText size={40} />
                 </div>
-                <h3 className="text-2xl md:text-3xl font-display font-black text-slate-900 mb-4">Resume Profesional</h3>
-                <p className="text-slate-600 mb-8 md:mb-10 max-w-md mx-auto text-base md:text-lg">
+                <h3 className="text-2xl md:text-3xl font-display font-black text-slate-900 dark:text-white mb-4">Resume Profesional</h3>
+                <p className="text-slate-600 dark:text-slate-400 mb-8 md:mb-10 max-w-md mx-auto text-base md:text-lg">
                   Dokumen lengkap yang merangkum kualifikasi, pengalaman kerja, dan latar belakang pendidikan saya.
                 </p>
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handleDownloadCV}
-                  className="px-8 md:px-12 py-4 md:py-5 bg-brand-600 text-white rounded-2xl font-bold text-lg md:text-xl flex items-center gap-3 hover:bg-brand-700 transition-all shadow-xl shadow-brand-200 mx-auto"
+                  className="px-8 md:px-12 py-4 md:py-5 bg-brand-600 text-white rounded-2xl font-bold text-lg md:text-xl flex items-center gap-3 hover:bg-brand-700 transition-all shadow-xl shadow-brand-200 dark:shadow-brand-900/40 mx-auto"
                 >
                   <FileText size={24} />
                   Unduh CV (PDF/JPG)
@@ -569,7 +606,7 @@ export default function App() {
             >
               <a 
                 href="#contact"
-                className="px-10 py-5 bg-white text-slate-900 border border-slate-200 rounded-2xl font-bold text-lg hover:bg-slate-50 transition-all shadow-lg flex items-center gap-3"
+                className="px-10 py-5 bg-white dark:bg-slate-900 text-slate-900 dark:text-white border border-slate-200 dark:border-white/10 rounded-2xl font-bold text-lg hover:bg-slate-50 dark:hover:bg-white/5 transition-all shadow-lg flex items-center gap-3"
               >
                 <Mail size={24} className="text-accent-pink" />
                 Hubungi Saya
@@ -580,7 +617,7 @@ export default function App() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-32 bg-white relative overflow-hidden">
+      <section id="skills" className="py-32 bg-white dark:bg-slate-950 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading subtitle="Alat dan teknologi yang saya kuasai untuk memberikan hasil berkualitas tinggi.">
             Keahlian Saya
@@ -594,10 +631,10 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 group hover:bg-white hover:shadow-glow hover:border-brand-200 transition-all duration-500"
+                className="bg-slate-50 dark:bg-slate-900/50 p-8 rounded-[2.5rem] border border-slate-100 dark:border-white/10 group hover:bg-white dark:hover:bg-slate-900 hover:shadow-glow hover:border-brand-200 transition-all duration-500"
               >
                 <div className="flex items-center justify-between mb-8">
-                  <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-brand-600 shadow-sm group-hover:bg-brand-600 group-hover:text-white transition-all duration-500">
+                  <div className="w-16 h-16 bg-white dark:bg-slate-800 rounded-2xl flex items-center justify-center text-brand-600 dark:text-brand-400 shadow-sm group-hover:bg-brand-600 group-hover:text-white transition-all duration-500">
                     {skill.name.includes('Photoshop') || skill.name.includes('Desain') ? (
                       <Palette size={32} />
                     ) : skill.name.includes('Jaringan') ? (
@@ -607,15 +644,15 @@ export default function App() {
                     )}
                   </div>
                   <div className="text-right">
-                    <p className="text-4xl font-display font-black text-slate-200 group-hover:text-brand-100 transition-colors">
+                    <p className="text-4xl font-display font-black text-slate-200 dark:text-slate-800 group-hover:text-brand-100 dark:group-hover:text-brand-900 transition-colors">
                       {skill.level}%
                     </p>
                   </div>
                 </div>
                 
-                <h3 className="text-2xl font-display font-bold text-slate-900 mb-6">{skill.name}</h3>
+                <h3 className="text-2xl font-display font-bold text-slate-900 dark:text-white mb-6">{skill.name}</h3>
                 
-                <div className="relative h-3 bg-slate-200 rounded-full overflow-hidden">
+                <div className="relative h-3 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
                   <motion.div 
                     initial={{ width: 0 }}
                     whileInView={{ width: `${skill.level}%` }}
@@ -627,7 +664,7 @@ export default function App() {
                 
                 <div className="mt-6 flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <span className="text-sm font-bold text-slate-400 uppercase tracking-widest">Penguasaan</span>
-                  <span className="text-sm font-black text-brand-600">Lanjutan</span>
+                  <span className="text-sm font-black text-brand-600 dark:text-brand-400">Lanjutan</span>
                 </div>
               </motion.div>
             ))}
@@ -636,7 +673,7 @@ export default function App() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-32 bg-slate-50 relative overflow-hidden">
+      <section id="experience" className="py-32 bg-slate-50 dark:bg-slate-900/50 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading subtitle="Garis waktu pertumbuhan profesional dan pencapaian saya.">
             Perjalanan Kerja
@@ -657,31 +694,31 @@ export default function App() {
                   className={`relative flex flex-col md:flex-row gap-12 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-8 md:left-1/2 top-0 w-10 h-10 bg-white rounded-2xl border-4 border-brand-600 shadow-glow transform -translate-x-1/2 z-10 flex items-center justify-center">
+                  <div className="absolute left-8 md:left-1/2 top-0 w-10 h-10 bg-white dark:bg-slate-900 rounded-2xl border-4 border-brand-600 shadow-glow transform -translate-x-1/2 z-10 flex items-center justify-center">
                     <Briefcase size={16} className="text-brand-600" />
                   </div>
                   
                   <div className="md:w-1/2 pl-16 md:pl-0">
-                    <div className={`bg-white p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-glow hover:border-brand-200 transition-all duration-500 group ${index % 2 === 0 ? 'md:ml-12' : 'md:mr-12'}`}>
+                    <div className={`bg-white dark:bg-slate-900 p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border border-slate-100 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-brand-900/10 hover:shadow-glow hover:border-brand-200 transition-all duration-500 group ${index % 2 === 0 ? 'md:ml-12' : 'md:mr-12'}`}>
                       <div className="flex flex-wrap justify-between items-start gap-4 mb-6 md:mb-8">
                         <div>
-                          <div className="inline-block px-4 py-1 rounded-full bg-brand-50 text-brand-700 text-[10px] md:text-xs font-black uppercase tracking-widest mb-3 md:mb-4">
+                          <div className="inline-block px-4 py-1 rounded-full bg-brand-50 dark:bg-brand-900/30 text-brand-700 dark:text-brand-300 text-[10px] md:text-xs font-black uppercase tracking-widest mb-3 md:mb-4">
                             {exp.period}
                           </div>
-                          <h3 className="text-2xl md:text-3xl font-display font-black text-slate-900 leading-tight group-hover:text-brand-600 transition-colors">{exp.role}</h3>
-                          <div className="flex flex-wrap items-center gap-3 md:gap-4 text-slate-500 font-bold mt-4">
-                            <div className="flex items-center gap-2 px-3 py-1 bg-slate-50 rounded-lg text-xs md:text-sm">
+                          <h3 className="text-2xl md:text-3xl font-display font-black text-slate-900 dark:text-white leading-tight group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">{exp.role}</h3>
+                          <div className="flex flex-wrap items-center gap-3 md:gap-4 text-slate-500 dark:text-slate-400 font-bold mt-4">
+                            <div className="flex items-center gap-2 px-3 py-1 bg-slate-50 dark:bg-slate-800 rounded-lg text-xs md:text-sm">
                               <Briefcase size={14} className="text-brand-400" />
                               <span>{exp.company}</span>
                             </div>
-                            <div className="flex items-center gap-2 px-3 py-1 bg-slate-50 rounded-lg text-xs md:text-sm">
+                            <div className="flex items-center gap-2 px-3 py-1 bg-slate-50 dark:bg-slate-800 rounded-lg text-xs md:text-sm">
                               <MapPin size={14} className="text-accent-pink" />
                               <span>{exp.location}</span>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <p className="text-base md:text-lg text-slate-600 leading-relaxed">
+                      <p className="text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
                         {exp.description}
                       </p>
                     </div>
@@ -695,7 +732,7 @@ export default function App() {
       </section>
 
       {/* Education Section */}
-      <section id="education" className="py-32 bg-slate-900 text-white relative overflow-hidden">
+      <section id="education" className="py-32 bg-slate-900 dark:bg-black text-white relative overflow-hidden">
         {/* Background Accents */}
         <div className="absolute top-0 left-0 w-full h-full -z-0 opacity-30">
           <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-brand-600 rounded-full blur-[150px]" />
@@ -750,9 +787,9 @@ export default function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-32 bg-white relative overflow-hidden">
+      <section id="contact" className="py-32 bg-white dark:bg-slate-950 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-slate-900 rounded-[4rem] p-8 md:p-20 overflow-hidden relative">
+          <div className="bg-slate-900 dark:bg-slate-900/50 rounded-[4rem] p-8 md:p-20 overflow-hidden relative border border-white/5">
             {/* Background Accents */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-brand-600 rounded-full blur-[120px] -mr-48 -mt-48 opacity-40" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-pink rounded-full blur-[120px] -ml-48 -mb-48 opacity-30" />
@@ -801,6 +838,29 @@ export default function App() {
                   ))}
                 </div>
 
+                <div className="flex flex-col sm:flex-row gap-4 mt-12">
+                  <motion.a
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    href={`https://wa.me/${profile.contact.phone.replace(/[^0-9]/g, '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-8 py-4 bg-green-500 text-white rounded-2xl font-bold flex items-center justify-center gap-3 shadow-lg shadow-green-200 dark:shadow-green-900/20 hover:bg-green-600 transition-all"
+                  >
+                    <MessageCircle size={24} />
+                    WhatsApp
+                  </motion.a>
+                  <motion.a
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    href={`mailto:${profile.contact.email}`}
+                    className="px-8 py-4 bg-brand-600 text-white rounded-2xl font-bold flex items-center justify-center gap-3 shadow-lg shadow-brand-200 dark:shadow-brand-900/20 hover:bg-brand-700 transition-all"
+                  >
+                    <Mail size={24} />
+                    Email
+                  </motion.a>
+                </div>
+
                 <div className="flex gap-4 md:gap-5 mt-12 md:mt-16">
                   {[
                     { icon: <Instagram size={24} />, href: profile.contact.socials.instagram },
@@ -825,9 +885,9 @@ export default function App() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="bg-white p-6 sm:p-10 md:p-12 rounded-[2.5rem] md:rounded-[3rem] shadow-2xl"
+                className="bg-white dark:bg-slate-900 p-6 sm:p-10 md:p-12 rounded-[2.5rem] md:rounded-[3rem] shadow-2xl border border-slate-100 dark:border-white/5"
               >
-                <form className="space-y-6 md:space-y-8" onSubmit={handleSubmit}>
+                <form className="space-y-6 md:space-y-8" onSubmit={(e) => e.preventDefault()}>
                   <div className="grid sm:grid-cols-2 gap-6 md:gap-8">
                     <div className="space-y-2 md:space-y-3">
                       <label className="text-xs md:text-sm font-black text-slate-400 uppercase tracking-widest ml-1">Nama</label>
@@ -838,7 +898,7 @@ export default function App() {
                         onChange={handleChange}
                         placeholder="Nama Anda"
                         required
-                        className="w-full px-5 md:px-6 py-3 md:py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-brand-500/10 focus:border-brand-500 transition-all font-bold text-sm md:text-base"
+                        className="w-full px-5 md:px-6 py-3 md:py-4 bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-white/10 rounded-2xl focus:outline-none focus:ring-4 focus:ring-brand-500/10 focus:border-brand-500 transition-all font-bold text-sm md:text-base dark:text-white"
                       />
                     </div>
                     <div className="space-y-2 md:space-y-3">
@@ -850,7 +910,7 @@ export default function App() {
                         onChange={handleChange}
                         placeholder="email@anda.com"
                         required
-                        className="w-full px-5 md:px-6 py-3 md:py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-brand-500/10 focus:border-brand-500 transition-all font-bold text-sm md:text-base"
+                        className="w-full px-5 md:px-6 py-3 md:py-4 bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-white/10 rounded-2xl focus:outline-none focus:ring-4 focus:ring-brand-500/10 focus:border-brand-500 transition-all font-bold text-sm md:text-base dark:text-white"
                       />
                     </div>
                   </div>
@@ -863,7 +923,7 @@ export default function App() {
                       onChange={handleChange}
                       placeholder="Tentang apa ini?"
                       required
-                      className="w-full px-5 md:px-6 py-3 md:py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-brand-500/10 focus:border-brand-500 transition-all font-bold text-sm md:text-base"
+                      className="w-full px-5 md:px-6 py-3 md:py-4 bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-white/10 rounded-2xl focus:outline-none focus:ring-4 focus:ring-brand-500/10 focus:border-brand-500 transition-all font-bold text-sm md:text-base dark:text-white"
                     />
                   </div>
                   <div className="space-y-2 md:space-y-3">
@@ -875,22 +935,43 @@ export default function App() {
                       rows={4}
                       placeholder="Ceritakan lebih banyak tentang proyek Anda..."
                       required
-                      className="w-full px-5 md:px-6 py-3 md:py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-brand-500/10 focus:border-brand-500 transition-all font-bold text-sm md:text-base resize-none"
+                      className="w-full px-5 md:px-6 py-3 md:py-4 bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-white/10 rounded-2xl focus:outline-none focus:ring-4 focus:ring-brand-500/10 focus:border-brand-500 transition-all font-bold text-sm md:text-base dark:text-white resize-none"
                     />
                   </div>
-                  <motion.button 
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    type="submit"
-                    disabled={isSent}
-                    className={`w-full py-4 md:py-5 rounded-2xl font-black text-base md:text-lg transition-all shadow-xl ${
-                      isSent 
-                        ? 'bg-green-500 text-white shadow-green-200' 
-                        : 'bg-brand-600 text-white hover:bg-brand-700 shadow-brand-200'
-                    }`}
-                  >
-                    {isSent ? 'Pesan Terkirim!' : 'Kirim Pesan'}
-                  </motion.button>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <motion.button 
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      type="button"
+                      onClick={() => handleSendMessage('whatsapp')}
+                      disabled={isSent || !formData.name || !formData.message}
+                      className={`py-4 md:py-5 rounded-2xl font-black text-base md:text-lg transition-all shadow-xl flex items-center justify-center gap-3 ${
+                        isSent 
+                          ? 'bg-green-500 text-white shadow-green-200' 
+                          : 'bg-green-600 text-white hover:bg-green-700 shadow-green-200 dark:shadow-green-900/40 disabled:opacity-50 disabled:cursor-not-allowed'
+                      }`}
+                    >
+                      <MessageCircle size={24} />
+                      {isSent ? 'Terkirim!' : 'WhatsApp'}
+                    </motion.button>
+                    
+                    <motion.button 
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      type="button"
+                      onClick={() => handleSendMessage('email')}
+                      disabled={isSent || !formData.name || !formData.message}
+                      className={`py-4 md:py-5 rounded-2xl font-black text-base md:text-lg transition-all shadow-xl flex items-center justify-center gap-3 ${
+                        isSent 
+                          ? 'bg-green-500 text-white shadow-green-200' 
+                          : 'bg-brand-600 text-white hover:bg-brand-700 shadow-brand-200 dark:shadow-brand-900/40 disabled:opacity-50 disabled:cursor-not-allowed'
+                      }`}
+                    >
+                      <Mail size={24} />
+                      {isSent ? 'Terkirim!' : 'Email'}
+                    </motion.button>
+                  </div>
                   <p className="text-center text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-widest">
                     Balasan langsung dalam 24 jam
                   </p>
@@ -902,12 +983,12 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 md:py-20 bg-slate-50 relative overflow-hidden border-t border-slate-100">
+      <footer className="py-12 md:py-20 bg-slate-50 dark:bg-slate-950 relative overflow-hidden border-t border-slate-100 dark:border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-12">
             <div className="text-3xl font-display font-black tracking-tighter text-center md:text-left">
-              <span className="text-brand-600">UMAR</span>
-              <span className="text-slate-900">.F</span>
+              <span className="text-brand-600">SITI</span>
+              <span className="text-slate-900 dark:text-white">.A</span>
             </div>
             
             <div className="flex flex-wrap justify-center gap-4 sm:gap-8">
@@ -929,7 +1010,7 @@ export default function App() {
                   href={social.href} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-slate-400 hover:text-brand-600 hover:border-brand-200 transition-all shadow-sm"
+                  className="w-10 h-10 bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-xl flex items-center justify-center text-slate-400 hover:text-brand-600 hover:border-brand-200 transition-all shadow-sm"
                 >
                   {social.icon}
                 </a>
@@ -937,13 +1018,13 @@ export default function App() {
             </div>
           </div>
           
-          <div className="mt-12 md:mt-20 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="mt-12 md:mt-20 pt-8 border-t border-slate-200 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
             <p className="text-slate-400 text-[10px] sm:text-sm font-bold uppercase tracking-widest text-center">
-              © {new Date().getFullYear()} Umar Fakhrudin. Dibuat dengan Sepenuh Hati.
+              © {new Date().getFullYear()} {profile.name}. Dibuat dengan Sepenuh Hati.
             </p>
             <div className="flex items-center gap-2 text-slate-400 text-[10px] sm:text-sm font-bold uppercase tracking-widest">
               <span>Didesain di</span>
-              <span className="text-brand-600">Cirebon</span>
+              <span className="text-brand-600">{profile.contact.location.split(',')[1]?.trim() || 'Indonesia'}</span>
             </div>
           </div>
         </div>
