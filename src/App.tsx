@@ -109,6 +109,7 @@ const profile = {
 // --- Components ---
 
 const CursorFollower = () => {
+  const [isVisible, setIsVisible] = useState(false);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -118,17 +119,38 @@ const CursorFollower = () => {
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
+      setIsVisible(true);
       mouseX.set(e.clientX - 16);
       mouseY.set(e.clientY - 16);
     };
 
+    const handleMouseLeave = () => setIsVisible(false);
+    const handleMouseEnter = () => setIsVisible(true);
+    const handleMouseDown = () => setIsVisible(true);
+    const handleMouseUp = () => {
+      // Keep visible if moving, but this helps on some mobile browsers if CSS fails
+    };
+
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseleave', handleMouseLeave);
+    document.addEventListener('mouseenter', handleMouseEnter);
+    window.addEventListener('mousedown', handleMouseDown);
+    window.addEventListener('mouseup', handleMouseUp);
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseleave', handleMouseLeave);
+      document.removeEventListener('mouseenter', handleMouseEnter);
+      window.removeEventListener('mousedown', handleMouseDown);
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
   }, [mouseX, mouseY]);
 
   return (
     <motion.div 
       className="cursor-follower"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: isVisible ? 1 : 0 }}
       style={{
         x: cursorX,
         y: cursorY,

@@ -59,6 +59,12 @@
   }
 
   .cursor-follower {
-    @apply fixed top-0 left-0 w-8 h-8 bg-brand-500/30 rounded-full pointer-events-none z-[9999] blur-sm;
+    @apply fixed top-0 left-0 w-8 h-8 bg-brand-500/30 rounded-full pointer-events-none z-[9999] blur-sm hidden;
+  }
+
+  @media (pointer: fine) {
+    .cursor-follower {
+      @apply block;
+    }
   }
 }
